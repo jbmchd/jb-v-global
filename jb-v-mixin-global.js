@@ -29,13 +29,21 @@ const globalMixin = {
   data() {
     return {
       atualizar_componente: false,
-      vmodel: this.value
+      value_data: this.value
     }
   },
   computed: {
     _id() {
       let id = this.id || `uid_${this._uid}`
       return id.toString()
+    },
+    vmodel: {
+      get() {
+        return this.value || this.value_data
+      },
+      set(v) {
+        this.value_data = v
+      }
     }
   },
   watch: {

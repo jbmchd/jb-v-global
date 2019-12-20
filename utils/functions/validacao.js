@@ -1,5 +1,22 @@
 const validators = {
   methods: {
+    $validar_cns(cns) {
+      if (!cns) {
+        cns = this.value
+      }
+      if (!cns) {
+        return false
+      }
+
+      let cns_validado = false
+
+      let strCNS = cns.match(/\d+/g).join([])
+      if (strCNS.length == 6) {
+        cns_validado = true
+      }
+
+      return cns_validado
+    },
     $validar_cpf(cpf) {
       if (!cpf) {
         cpf = this.value
@@ -133,7 +150,7 @@ const validators = {
       }
 
       return result
-    },
+    }
   }
 }
 

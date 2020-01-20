@@ -1,30 +1,4 @@
-import {
-  array,
-  datetime,
-  object,
-  moeda,
-  numero,
-  comuns,
-  regex,
-  string,
-  validacao,
-  componentes
-} from './utils/functions'
-
-const globalMixin = {
-  mixins: [
-    array,
-    object,
-    datetime,
-    comuns,
-    moeda,
-    numero,
-    string,
-    regex,
-    validacao,
-    componentes
-  ],
-  // props: { value: { type: [ String, Number, Boolean, Array, Object, Date, Function, Symbol, CustomEvent, InputEvent, Event ] } },
+export default {
   props: ['value'],
   data() {
     return {
@@ -55,10 +29,5 @@ const globalMixin = {
     atualizarComponente() {
       this.atualizar_componente = !this.atualizar_componente
     },
-    bootstrapvue_ref(novo_ref) {
-      return this.ref || novo_ref || `uid_${this._uid}`
-    }
   }
 }
-
-export default globalMixin

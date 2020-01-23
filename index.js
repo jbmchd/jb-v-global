@@ -8,6 +8,6 @@ import {
   string,
   validacao,
   componentes
-} from './../../jbmchd/jb-v-global/functions'
+} from './functions'
 
 Vue.prototype.$jb = {regex, object, string, validar: validacao, array, mascara: mascaras, ...diversos, ...componentes}

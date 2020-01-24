@@ -109,14 +109,14 @@ export default {
     }
     return cnpj_validado
   },
-  igual_a: campo => {
+  igual_a: (campo, $this) => {
     let result = false
-    let child = this.$parent.$children.filter(child => {
+    let child = $this.$parent.$children.filter(child => {
       return child.id == campo
     })
     
     if (child.length) {
-      return child[0].vmodel == this.value
+      return child[0].vmodel == $this.value
     }
     else {
       return true

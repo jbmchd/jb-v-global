@@ -45,31 +45,20 @@ export default {
         .catch(error => reject(error))
     })
   },
-  alert: (tipo='success', msg = null) => {    
-    if (tipo == 'success') {
-      msg = msg || 'Operação realizada com sucesso.'
-    }
-    else if (tipo == 'error') {
-      msg = msg || 'Ocorreu algum problema.'
-    }
+  alert: mensagem_ou_options => {
+    if (typeof mensagem_ou_options === 'string') {
+        mensagem_ou_options = { title: mensagem_ou_options, icon: 'info' }
+      }
+      mensagem_ou_options.timer = mensagem_ou_options.timer || mensagem_ou_options.title.length * 50
+      Toast.fire(mensagem_ou_options)
 
-    Swal.fire({
-      icon: tipo,
-      title: msg
-    })
+    Swal.fire(mensagem_ou_options)
   },
-  toast: (tipo='success', msg = null) => {    
-    if (tipo == 'success') {
-      msg = msg || 'Operação realizada com sucesso.'
+  toast: mensagem_ou_options => {
+    if (typeof mensagem_ou_options === 'string') {
+      mensagem_ou_options = { title: mensagem_ou_options, icon: 'info' }
     }
-    else if (tipo == 'error') {
-      msg = msg || 'Ocorreu algum problema.'
-    }
-
-    Toast.fire({
-      icon: tipo,
-      title: msg
-    })
-
+    mensagem_ou_options.timer = mensagem_ou_options.timer || mensagem_ou_options.title.length * 50
+    Toast.fire(mensagem_ou_options)
   }
 }

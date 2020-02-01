@@ -1,13 +1,27 @@
-import diversos from './diversos'
+export default obj => {
+    return {
+        hasKey: (key) => {
+            return obj ? {}.hasOwnProperty.call(obj, key) : false
+        },
+        getKeyByValue: (value) => {
+            return Object.keys(object).find(key => object[key] == value)
+        },
+        hasOwnProperty: (propertyPathDoted) => {
+            if (!propertyPathDoted)
+                return false;
 
-export default {
-  hasKey: (key, obj) => {
-    return obj ? {}.hasOwnProperty.call(obj, key) : false
-  },
-  getKeyByValue: (object, value) => {
-    return Object.keys(object).find(key => object[key] == value)
-  },
-  copiar: (obj) => {
-    return diversos.typeof(obj, 'object') ? JSON.parse(JSON.stringify(obj)) : {}
-  }
+            var properties = propertyPathDoted.split('.');
+
+            for (var i = 0; i < properties.length; i++) {
+                var prop = properties[i];
+
+                if (!obj || !obj.hasOwnProperty(prop)) {
+                    return false;
+                } else {
+                    obj = obj[prop];
+                }
+            }
+            return true;
+        }
+    }
 }

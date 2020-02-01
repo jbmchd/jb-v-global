@@ -1,7 +1,10 @@
-export default {
-  removerElementosVazios: array => {
-    return array.filter(el => {
-      return !!el
-    })
-  },
+
+export default array => {
+    return {
+        removerElementosVazios: () => {
+            return array.filter(el => {
+                return !!el
+            })
+        },
+    }
 }

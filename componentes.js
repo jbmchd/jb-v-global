@@ -47,9 +47,9 @@ export default {
   },
   alert: mensagem_ou_options => {
     if (typeof mensagem_ou_options === 'string') {
-        mensagem_ou_options = { title: mensagem_ou_options, icon: 'info' }
+        mensagem_ou_options = { text: mensagem_ou_options, icon: 'info' }
       }
-      mensagem_ou_options.timer = mensagem_ou_options.timer || mensagem_ou_options.title.length * 50
+      mensagem_ou_options.timer = 0
       Toast.fire(mensagem_ou_options)
 
     Swal.fire(mensagem_ou_options)

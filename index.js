@@ -7,8 +7,9 @@ import {
   mascaras,
   diversos,
   string,
+  currency,
   validacao,
 } from './functions'
 
 
-Vue.prototype.$jb = {regex, object, string, validar: validacao, array, mascara: mascaras, ...diversos, ...componentes}
+Vue.prototype.$jb = {regex, object, string, currency, validar: validacao, array, mascara: mascaras, ...diversos, ...componentes}

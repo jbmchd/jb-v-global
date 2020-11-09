@@ -15,7 +15,7 @@ const Toast = Swal.mixin({
     showConfirmButton: false,
     timer: 3000,
     timerProgressBar: true,
-    onOpen: (toast) => {
+    didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
@@ -62,7 +62,10 @@ export default {
         if (typeof mensagem_ou_options === 'string') {
             mensagem_ou_options = { title: mensagem_ou_options, icon: 'info' }
         }
-        mensagem_ou_options.timer = mensagem_ou_options.timer || mensagem_ou_options.title.length * 50
+        mensagem_ou_options.timer = mensagem_ou_options.timer !== null ? mensagem_ou_options.timer : mensagem_ou_options.title.length * 50
+        if(mensagem_ou_options.timer > 1 && mensagem_ou_options.timer < 3000){
+            mensagem_ou_options.timer = 3000
+        }
         Toast.fire(mensagem_ou_options)
     }
 }
